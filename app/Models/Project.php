@@ -10,9 +10,17 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','url','slug'];
+    protected $fillable = ['title','image','url','slug'];
 
-    public static function generateSlug($title){
-        return Str::slug($title, '-');
+    //Ho bisogno che lo slug sia unico per ogni progetto, quindi ciclo, conto e in base al count definisco slug
+    public static function generateSlug($title)
+    {
+        $slug = Str::slug($title, '-');
+        $count = 1;
+        while(Project::where('slug', $slug)->first()){
+            $slug = Str::slug($title, '-') . "-{$count}";
+            $count++;
+        }
+        return $slug;
     }
 }
