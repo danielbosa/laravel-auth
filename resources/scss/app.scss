@@ -9,6 +9,67 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color: $text-color;
+#admin{
+    height: 100vh;
+    overflow: hidden;
+    background-color: $db-bg;
+    display: flex;
+    #sidebar{
+        width: 100px;
+        border-right: 1px solid black;
+        background-color: $db-details;
+        ul{
+            padding: 0 5px 0 5px;
+            margin-top: 20px;
+            li{
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+                color: $db-secondary;
+                &.active{
+                    color: rgb(243, 213, 115);
+                }
+                // @include media-breakpoint-up(md){
+                //     margin-right: 5px;
+                // }
+                i{
+                    width: 20px;
+                    font-size: 1.2rem;
+                    // @include media-breakpoint-up(md){
+                    //     margin-right: 5px;
+                    // }
+                }
+                span{
+                    display: none;
+                    width: 50px;
+                    // @include media-breakpoint-up(md){
+                    //     display: inline-block;
+                    // }
+                }
+            }
+        }
+        @include media-breakpoint-up(md){
+            width: 150px;
+                ul{
+                    padding: 0 5px 0 5px;
+                    li{
+                        margin: 0 0 20px 10px;
+                        justify-content: start;
+                        i{
+                            margin-right: 5px;
+                            }
+                        span{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }      
+        }
+    #wrapper{
+        flex-grow: 1;
+        header{
+            height: 50px;
+        }
+    }
 }
