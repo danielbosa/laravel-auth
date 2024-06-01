@@ -9,6 +9,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
+
 #admin{
     height: 100vh;
     overflow: hidden;
@@ -71,5 +72,12 @@ $fa-font-path: "../fonts/webfonts" !default;
         header{
             height: 50px;
         }
+    }
+}
+
+header{
+    background-color: $db-bg;
+    .img-profile{
+        width: 20px
     }
 }
