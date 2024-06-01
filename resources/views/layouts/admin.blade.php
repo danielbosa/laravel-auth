@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Portfolio DB') }}</title>
+    <title>@yield('title', 'Portfolio')</title>
 
 
     <!-- Fonts -->
@@ -22,16 +22,12 @@
 <body>
     <div id="admin">
         @include('partials.sidebar')
-        
         <div id="wrapper">
             @include('partials.header')
-            
-            <main class="">
+            <main class="container-fluid">
                 @yield('content')
             </main>
         </div>
-
-        
     </div>
 </body>
 
