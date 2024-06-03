@@ -7,15 +7,15 @@
             </a>
         </li>
         <li class="{{Route::currentRouteName() == 'admin.dashboard' ? 'active' : ''}}">
-            <a href="/" class="nav-link">
+            <a href="/admin" class="nav-link">
                 <i class="fa-solid fa-chart-simple"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="{{Route::currentRouteName() == 'admin.projects.index' ? 'active' : ''}}">
-            <a href="/" class="nav-link">
+            <a href="/admin/projects" class="nav-link">
                 <i class="fa-solid fa-signal"></i>
-                <span>Index</span>
+                <span>Projects</span>
             </a>
         </li>
     </ul>

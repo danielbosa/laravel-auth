@@ -16,7 +16,9 @@ $fa-font-path: "../fonts/webfonts" !default;
     background-color: $db-bg;
     display: flex;
     #sidebar{
-        width: 100px;
+        width: 75px;
+        height: 100%;
+        position: fixed;
         border-right: 1px solid black;
         background-color: $db-details;
         ul{
@@ -52,7 +54,6 @@ $fa-font-path: "../fonts/webfonts" !default;
         }
     }
     @include media-breakpoint-down(md){
-        height: 100%;
         overflow: auto;
     }
     @include media-breakpoint-up(md){
@@ -75,8 +76,16 @@ $fa-font-path: "../fonts/webfonts" !default;
         }
     #wrapper{
         flex-grow: 1;
+        //margin left per non finire sotto la sidebar fixed
+        margin-left: 75px;
+        @include media-breakpoint-up(md){
+            margin-left: 150px;
+        }
         header{
             height: 50px;
+        }
+        main.container-fluid{
+            width: 100%;
         }
     }
 }
@@ -89,6 +98,17 @@ header{
 }
 
 #index{
+    table {
+        width: 100%; // Ensure the table takes the full width of its container
+        table-layout: fixed; // Force columns to fit within the available space
+        word-wrap: break-word; // Break long words to fit within the cells
+    }
+
+    th, td {
+        overflow: hidden;
+        text-overflow: ellipsis; // Ellipsis for overflowed content
+    }
+    
     .col-slug{
         width: 150px;
     }
