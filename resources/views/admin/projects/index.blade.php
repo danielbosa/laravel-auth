@@ -36,6 +36,10 @@
                     <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST" class="d-inline-block">
                         @csrf
                         @method('DELETE')
+                        {{--
+                            bottone ha classe delete-button perché mi serve per JS! Non per lo stile-scss
+                            C'è anche attributo data-item-title --> è attributo che poi vado a mostrare nella modale!
+                            --}}
                         <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $project->title }}">
                         <i class="fa-solid fa-trash"></i>
                         </button>
