@@ -53,9 +53,9 @@ $fa-font-path: "../fonts/webfonts" !default;
             }
         }
     }
-    @include media-breakpoint-down(md){
-        overflow: auto;
-    }
+    // @include media-breakpoint-down(md){
+    //     overflow: auto;
+    // }
     @include media-breakpoint-up(md){
         #sidebar{
             width: 150px;
@@ -75,16 +75,22 @@ $fa-font-path: "../fonts/webfonts" !default;
             }      
         }
     #wrapper{
-        flex-grow: 1;
+        //flex-grow: 1;
+        height: 100vh;
+        overflow-y: hidden;
         //margin left per non finire sotto la sidebar fixed
         margin-left: 75px;
         @include media-breakpoint-up(md){
             margin-left: 150px;
         }
-        header{
-            height: 50px;
+        main{
+            flex-grow: 1;
+            overflow-y: auto;
+            //margin-top per non finire sotto header fixed
+            margin-top: 50px;
+            height: calc(100vh - 50px);
         }
-        main.container-fluid{
+        &.container-fluid{
             width: 100%;
         }
     }
@@ -92,6 +98,13 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 header{
     background-color: $db-bg;
+    height: 50px;
+    position: fixed;
+    width: calc(100% - 75px);
+    @include media-breakpoint-up(md){
+        width: calc(100% - 150px);
+    }
+    height: 50px;
     .img-profile{
         width: 20px
     }
@@ -108,7 +121,7 @@ header{
         overflow: hidden;
         text-overflow: ellipsis; // Ellipsis for overflowed content
     }
-    
+
     .col-slug{
         width: 150px;
     }
