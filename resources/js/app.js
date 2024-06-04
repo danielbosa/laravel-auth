@@ -3,6 +3,7 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 
+//^ delete button for CRUD: delete project
 const deleteSubmitButtons = document.querySelectorAll(".delete-button");
 
 deleteSubmitButtons.forEach((button) => {

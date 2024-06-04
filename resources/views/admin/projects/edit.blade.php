@@ -6,7 +6,7 @@
     <section>
         <div class="d-flex justify-content-between align-items-center py-4">
             <h2>Edit project: {{$project->title}}</h2>
-            <a href="{{route('admin.projects.show', $post->slug)}}" class="btn btn-danger">Show Project</a>
+            <a href="{{route('admin.projects.show', $project->slug)}}" class="btn btn-danger">Show Project</a>
         </div>
 
         <form action="{{ route('admin.projects.update', $project->slug)}}" method="POST">

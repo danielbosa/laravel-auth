@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -28,10 +29,14 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
+        if($request->hasFile('image')){
+            $path = Storage::put('uploads', $request->image);
+            $form_data['image'] = $path;
+        };
         $newProject = Project::create($form_data);
         return redirect()->route('admin.projects.show', $newProject->slug);
     }
