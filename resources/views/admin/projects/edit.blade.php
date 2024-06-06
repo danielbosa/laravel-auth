@@ -35,14 +35,14 @@
 
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="url" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}" maxlength="255">
+                <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image', $project->image) }}" maxlength="255">
                 @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="url" class="form-label">Url</label>
-                <input type="url" class="form-control @error('url') is-invalid @enderror" id="url" name="url" value="{{ old('url') }}" maxlength="255">
+                <input type="url" class="form-control @error('url') is-invalid @enderror" id="url" name="url" value="{{ old('url', $project->url) }}" maxlength="255">
                 @error('url')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
