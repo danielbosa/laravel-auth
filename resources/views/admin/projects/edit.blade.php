@@ -15,12 +15,24 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    value="{{ old('title') }}" minlength="3" maxlength="200" required>
+                    value="{{ old('title', $project->title) }}" minlength="3" maxlength="200" required>
                 @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 {{-- <div id="titleHelp" class="form-text text-white">Inserire minimo 3 caratteri e massimo 200</div> --}}
             </div>
+            
+            {{-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                Preview block 
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+            <div class="media me-4">
+                @if($project->image)
+                <img class="shadow" width="150" src="{{asset('storage/' . $project->image)}}" alt="{{$project->title}}" id="uploadPreview">
+                @else
+                <img class="shadow" width="150" src="/images/logoDB.png" alt="{{$project->title}}" id="uploadPreview">
+                @endif
+            </div>
+
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
                 <input type="url" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image') }}" maxlength="255">
@@ -46,8 +58,7 @@
             </div> --}}
             <div class="mb-3">
                 <button type="submit" class="btn btn-danger">Save</button>
-                <button type="reset" class="btn btn-secondary">Leave</button>
-
+                <button type="reset" class="btn btn-secondary">Reset</button>
             </div>
         </form>
 
