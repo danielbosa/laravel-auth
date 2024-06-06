@@ -67,7 +67,7 @@ class ProjectController extends Controller
         $form_data = $request->all();
         //$form_data['user_id'] = Auth::id();
         if ($project->title !== $form_data['title']) {
-            $form_data['slug'] = Post::generateSlug($form_data['title']);
+            $form_data['slug'] = Project::generateSlug($form_data['title']);
         }
         if ($request->hasFile('image')) {
             if ($project->image) {
