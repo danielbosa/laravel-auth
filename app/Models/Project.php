@@ -8,6 +8,9 @@ use Illuminate\Support\Str;
 
 class Project extends Model
 {
+
+    protected $table = 'projects';
+
     use HasFactory;
 
     protected $fillable = ['title','image','url','slug'];
