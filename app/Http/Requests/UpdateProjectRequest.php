@@ -23,6 +23,16 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|max:200|min:3',
+            /*
+            ATTN: se il campo title fosse unique (se lo avessi definito in fase di migration, quindi nel db) devo ignorarlo qui nell'update! Perché se no non mi fa updatare il record: perché vede che il titolo che sto passando (qualora non lo modificassi) esiste già; è lo stesso! Quindi fare così in array:
+                
+            'title' => [
+                'required',
+                'max:200',
+                'min:3',
+                Rule::unique('posts')->ignore($this->post->id),
+            ],
+            */
             'image' => 'nullable',
             'url' => 'required'
         ];
